@@ -2,9 +2,11 @@ package com.ak11.ac_twitterclone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -81,9 +83,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     @Override
                     public void done(ParseUser user, ParseException e) {
                         if(user!=null && e==null){
-                                FancyToast.makeText(Login.this,username+" Logged In successfully",
+                                FancyToast.makeText(Login.this,user.getUsername()+" Logged In successfully",
                                         FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,false).show();
-                                // TODO transition to third activity
+                            Intent intent = new Intent(Login.this,TwitterUsers.class);
+                            startActivity(intent);
+                            finish();
                             }
                         else {
                             FancyToast.makeText(Login.this,e.getMessage(), Toast.LENGTH_SHORT,
@@ -96,6 +100,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.btnLoginSingup:
                 finish();
+                break;
+            case R.id.LoginLayout:
+                InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),0);
                 break;
         }
     }
