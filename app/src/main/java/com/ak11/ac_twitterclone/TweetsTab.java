@@ -34,6 +34,7 @@ public class TweetsTab extends Fragment {
                 new int[]{android.R.id.text1, android.R.id.text2});
         try{
             ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("Tweet");
+            //Parse
 
 
 
