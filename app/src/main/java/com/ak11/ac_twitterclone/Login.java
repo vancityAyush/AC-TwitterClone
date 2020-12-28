@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.parse.GetCallback;
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
@@ -85,7 +84,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         if(user!=null && e==null){
                                 FancyToast.makeText(Login.this,user.getUsername()+" Logged In successfully",
                                         FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,false).show();
-                            Intent intent = new Intent(Login.this,TwitterUsers.class);
+                            Intent intent = new Intent(Login.this, MainActivity.class);
                             startActivity(intent);
                             finish();
                             }

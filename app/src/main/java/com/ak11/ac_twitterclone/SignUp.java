@@ -1,12 +1,10 @@
 package com.ak11.ac_twitterclone;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -17,7 +15,6 @@ import android.widget.Toast;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParseUser;
-import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
@@ -55,7 +52,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         if(ParseUser.getCurrentUser()!=null){
             FancyToast.makeText(this,"Welcome "+ParseUser.getCurrentUser().getUsername(),
                     Toast.LENGTH_SHORT,FancyToast.DEFAULT,false).show();
-            Intent intent = new Intent(SignUp.this,TwitterUsers.class);
+            Intent intent = new Intent(SignUp.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
