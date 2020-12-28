@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                        ParseObject parseObject = new ParseObject("Tweet");
                        parseObject.put("tweet",edtTweet.getText().toString());
                        parseObject.put("user",ParseUser.getCurrentUser());
+                       parseObject.put("username",ParseUser.getCurrentUser().getUsername());
                        final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
                        progressDialog.setMessage("Sending...");
                        progressDialog.show();
